@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.background {
+  background-image: radial-gradient(
+    at top,
+    hsl(214, 47%, 23%),
+    hsl(237, 49%, 15%)
+  );
+}
+
+.coin {
+  @apply rounded-full h-28 w-28 md:h-44 md:w-44 border-b-8  flex items-center justify-center;
+  height: 7.4rem;
+}
+
+.coin.red {
+  @apply bg-red-500 border-b-red-800;
+}
+.coin.blue {
+  @apply bg-blue-500 border-b-blue-800;
+}
+.coin.green {
+  @apply bg-green-300 border-b-green-500;
+}
+.coin.yellow {
+  @apply bg-yellow-500 border-b-yellow-800;
+}
+.coin.purple {
+  @apply bg-purple-500 border-b-purple-800;
+}
+
+@screen md {
+  .coin {
+    height: 11.4rem;
+  }
+}
