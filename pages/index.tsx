@@ -14,7 +14,7 @@ const Home: NextPage = () => {
       </Head>
       <main className="background flex flex-col items-center w-screen px-8 h-screen pt-12">
         <Header />
-        <div className="relative md:w-2/3 mt-12 w-full">
+        <div className="flex flex-col items-center relative md:w-2/3 mt-12 w-full">
           <div className="flex items-center justify-center m-12  ">
             {/*eslint-disable-next-line @next/next/no-img-element*/}
             <img
@@ -38,11 +38,10 @@ const Home: NextPage = () => {
               <Coin color={CoinColor.RED} type={CoinType.ROCK} />
             </div>
           </div>
+          <button className="w-32 h-12 md:self-end md:mt-0 mt-24  bg-transparent border-solid text-white hover:bg-white hover:text-scoreText border-2 rounded-lg">
+            RULES
+          </button>
         </div>
-
-        <button className="w-32 h-12 md:self-end md:mt-0 mt-24 bg-transparent border-solid text-white hover:bg-white hover:text-scoreText border-2 rounded-lg">
-          RULES
-        </button>
       </main>
     </div>
   );
