@@ -27,7 +27,7 @@ a {
 }
 
 .coin {
-  @apply rounded-full h-28 w-28 md:h-44 md:w-44 border-b-8  flex items-center justify-center;
+  @apply md:hover:w-48 md:hover:h-48 rounded-full hover:h-32 hover:w-32 w-28 h-28 w-28 md:h-44 md:w-44 border-b-8  flex items-center justify-center;
   height: 7.4rem;
 }
 
@@ -51,4 +51,23 @@ a {
   .coin {
     height: 11.4rem;
   }
+}
+
+.coin-top {
+  transform: translateY(-80%);
+}
+
+.coin-top-left {
+  transform: translate(-100%, -10%);
+}
+
+.coin-top-right {
+  transform: translate(100%, -10%);
+}
+.coin-bottom-right {
+  transform: translate(70%, 100%);
+}
+
+.coin-bottom-left {
+  transform: translate(-70%, 100%);
 }
