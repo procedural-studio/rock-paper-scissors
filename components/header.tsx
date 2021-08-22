@@ -1,10 +1,14 @@
 import { useState } from 'react';
 
-const Header = () => {
-  const [score, setScore] = useState(42);
+export interface Props {
+  score: number;
+}
+
+const Header = (props: Props) => {
+  const score = props.score;
 
   return (
-    <div className="w-full md:w-2/3 md:h-1/5 h-1/6 md:px-8 p-4 border-4 border-headerOutline bg-transparent rounded-xl">
+    <div className="w-full lg:w-2/3 md:w-3/4 md:h-1/5 h-1/6 md:px-8 p-4 border-4 border-headerOutline bg-transparent rounded-xl">
       <div className="flex justify-between  h-full">
         <div className="flex flex-col justify-center w-2/5 text-left font-semibold text-white bg-transparent md:text-2xl text-2xl ">
           <p className="leading-5">ROCK</p>

@@ -27,8 +27,13 @@ a {
 }
 
 .coin {
-  @apply md:hover:w-48 md:hover:h-48 rounded-full hover:h-32 hover:w-32 w-28 h-28 w-28 md:h-44 md:w-44 border-b-8  flex items-center justify-center;
-  height: 7.4rem;
+  @apply z-50 disabled:hover:scale-100 hover:scale-110 rounded-full md:border-b-8 border-b-4  flex items-center justify-center;
+  height: 7rem;
+  width: 7rem;
+}
+
+.coin.inner {
+  @apply flex hover:scale-100 justify-center items-center rounded-full h-20 w-20 md:border-t-8 border-t-4 border-b-0 md:h-36 md:w-36 bg-white;
 }
 
 .coin.red {
@@ -49,25 +54,32 @@ a {
 
 @screen md {
   .coin {
+    @apply z-20;
     height: 11.4rem;
+    width: 11.4rem;
   }
 }
 
 .coin-top {
+  @apply absolute;
   transform: translateY(-80%);
 }
 
 .coin-top-left {
+  @apply absolute;
   transform: translate(-100%, -10%);
 }
 
 .coin-top-right {
+  @apply absolute;
   transform: translate(100%, -10%);
 }
 .coin-bottom-right {
+  @apply absolute;
   transform: translate(70%, 100%);
 }
 
 .coin-bottom-left {
+  @apply absolute;
   transform: translate(-70%, 100%);
 }

@@ -12,7 +12,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      height: ['disabled'],
+      width: ['disabled'],
+    },
   },
   plugins: [],
 };

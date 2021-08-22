@@ -2,9 +2,55 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Header from '../components/header';
-import Coin, { CoinColor, CoinType } from '../components/coin';
+import React, { useState } from 'react';
+import Selector from '../components/selector';
+import { CoinType } from '../components/coin';
+import Results, { IGameResults } from '../components/results';
+import RulesModal from '../components/rules-modal';
+
+const checkUserWon = (results: IGameResults) => {
+  const { userChoice, botChoice } = results;
+  // Implement rock paper scissors lizard spock logic
+  if (userChoice === botChoice) {
+    return null;
+  }
+  if (userChoice === CoinType.ROCK) {
+    return botChoice === CoinType.SCISSORS || botChoice === CoinType.LIZARD;
+  }
+  if (userChoice === CoinType.PAPER) {
+    return botChoice === CoinType.ROCK || botChoice === CoinType.SPOCK;
+  }
+  if (userChoice === CoinType.SCISSORS) {
+    return botChoice === CoinType.PAPER || botChoice === CoinType.LIZARD;
+  }
+  if (userChoice === CoinType.LIZARD) {
+    return botChoice === CoinType.SPOCK || botChoice === CoinType.PAPER;
+  }
+  if (userChoice === CoinType.SPOCK) {
+    return botChoice === CoinType.LIZARD || botChoice === CoinType.ROCK;
+  }
+  return null;
+};
 
 const Home: NextPage = () => {
+  const [results, setResults] = useState<IGameResults | null>(null);
+  const [score, setScore] = useState(0);
+  const [userWon, setUserWon] = useState<boolean | null>(null);
+
+  const selectCoin = (userChoice: CoinType, botChoice: CoinType) => {
+    const newResults = { userChoice, botChoice };
+    const newUserWon = checkUserWon(newResults);
+    console.log(newUserWon);
+    const update = newUserWon == null ? 0 : newUserWon ? 1 : -1;
+    setUserWon(newUserWon);
+    setResults(newResults);
+    setScore(score + update);
+  };
+
+  const clearResults = () => {
+    setResults(null);
+  };
+
   return (
     <div className="container">
       <Head>
@@ -13,35 +59,16 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="background flex flex-col items-center w-screen px-8 h-screen pt-12">
-        <Header />
-        <div className="flex flex-col items-center relative md:w-2/3 mt-12 w-full">
-          <div className="flex items-center justify-center m-12  ">
-            {/*eslint-disable-next-line @next/next/no-img-element*/}
-            <img
-              className="md:h-96 md:w-96 h-64 w-64"
-              src="/images/bg-pentagon.svg"
-              alt="logo"
-            />
-            <div className="absolute coin-top">
-              <Coin color={CoinColor.YELLOW} type={CoinType.SCISSORS} />
-            </div>
-            <div className="absolute coin-top-left">
-              <Coin color={CoinColor.GREEN} type={CoinType.SPOCK} />
-            </div>
-            <div className="absolute coin-top-right">
-              <Coin color={CoinColor.BLUE} type={CoinType.PAPER} />
-            </div>
-            <div className="absolute coin-bottom-left">
-              <Coin color={CoinColor.PURPLE} type={CoinType.LIZARD} />
-            </div>
-            <div className="absolute coin-bottom-right">
-              <Coin color={CoinColor.RED} type={CoinType.ROCK} />
-            </div>
-          </div>
-          <button className="w-32 h-12 md:self-end md:mt-0 mt-24  bg-transparent border-solid text-white hover:bg-white hover:text-scoreText border-2 rounded-lg">
-            RULES
-          </button>
-        </div>
+        <Header score={score} />
+        {results ? (
+          <Results
+            results={results}
+            userWon={userWon}
+            clearResults={clearResults}
+          />
+        ) : (
+          <Selector onSelect={selectCoin} />
+        )}
       </main>
     </div>
   );
