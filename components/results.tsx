@@ -15,7 +15,7 @@ export interface Props {
 const EmptyCoin = ({ number: number }) => (
   <div className="relative flex justify-center items-center">
     <div className="rounded-full h-28 w-28 md:h-44 md:w-44 bg-black opacity-20"></div>
-    <div className="absolute text-white text-8xl">{number}</div>
+    <div className="absolute text-white text-6xl md:text-8xl">{number}</div>
   </div>
 );
 
@@ -38,12 +38,12 @@ const Results = (props: Props) => {
   return (
     <div className="relative flex pt-36 md:h-4/5 h-5/6 md:justify-evenly justify-between w-full lg:w-2/3 md:w-3/4">
       <div className="flex flex-col items-center">
-        <Coin highlight={seconds == 0 && userWon} type={results.userChoice} />
+        <Coin highlight={showResults && userWon} type={results.userChoice} />
         <p className="z-50 mt-12 font-semibold  text-white md:text-xl tracking-widest ">
           YOU PICKED
         </p>
       </div>
-      {seconds == 0 && (
+      {showResults && (
         <div className="z-40 md:static absolute bottom-12 left-1/2 md:-translate-x-0 -translate-x-1/2 flex flex-col items-center ">
           <p className="md:text-6xl text-5xl text-white">
             {userWon == null ? 'TIE' : userWon ? 'YOU WIN' : 'YOU LOST'}
@@ -57,9 +57,9 @@ const Results = (props: Props) => {
         </div>
       )}
       <div className="z-40 flex flex-col items-center">
-        {seconds == 0 ? (
+        {showResults ? (
           <Coin
-            highlight={userWon != null && seconds == 0 && !userWon}
+            highlight={userWon != null && showResults && !userWon}
             type={results.botChoice}
           />
         ) : (

@@ -70,14 +70,17 @@ const Home: NextPage = () => {
             clearResults={clearResults}
           />
         ) : (
-          <Selector onSelect={selectCoin} />
+          <>
+            <Selector onSelect={selectCoin} />
+            <button
+              onClick={(e) => setShowRules(true)}
+              className="absolute md:right-16 bottom-16  w-32 py-3 bg-transparent border-solid text-white hover:bg-white hover:text-scoreText border-2 rounded-lg"
+            >
+              RULES
+            </button>
+          </>
         )}
-        <button
-          onClick={(e) => setShowRules(true)}
-          className="absolute md:right-16 bottom-16  w-32 py-3 bg-transparent border-solid text-white hover:bg-white hover:text-scoreText border-2 rounded-lg"
-        >
-          RULES
-        </button>
+
         <Footer />
       </main>
     </>
