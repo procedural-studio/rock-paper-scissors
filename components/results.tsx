@@ -12,10 +12,15 @@ export interface Props {
   userWon: boolean | null;
 }
 
-const EmptyCoin = ({ number: number }) => (
+export interface CoinProps {
+  counter: number;
+}
+const EmptyCoin = (props: CoinProps) => (
   <div className="relative flex justify-center items-center">
     <div className="rounded-full h-28 w-28 md:h-44 md:w-44 bg-black opacity-20"></div>
-    <div className="absolute text-white text-6xl md:text-8xl">{number}</div>
+    <div className="absolute text-white text-6xl md:text-8xl">
+      {props.counter}
+    </div>
   </div>
 );
 
@@ -63,7 +68,7 @@ const Results = (props: Props) => {
             type={results.botChoice}
           />
         ) : (
-          <EmptyCoin number={seconds} />
+          <EmptyCoin counter={seconds} />
         )}
 
         <p className="mt-12 font-semibold text-white md:text-xl tracking-widest ">
