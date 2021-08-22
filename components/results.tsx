@@ -18,14 +18,14 @@ const Results = (props: Props) => {
   const userWon = props.userWon;
 
   return (
-    <div className="relative flex pt-36 md:h-4/5 h-5/6  md:justify-evenly justify-between w-full lg:w-2/3 md:w-3/4">
+    <div className="relative flex pt-36 md:h-4/5 h-5/6 md:justify-evenly justify-between w-full lg:w-2/3 md:w-3/4">
       <div className="flex flex-col items-center">
         <Coin highlight={userWon} type={results.userChoice} />
         <p className="z-50 mt-12 font-semibold  text-white md:text-xl tracking-widest ">
           YOU PICKED
         </p>
       </div>
-      <div className="z-50 md:static absolute bottom-12 left-1/2 md:-translate-x-0 -translate-x-1/2 flex flex-col items-center ">
+      <div className="z-40 md:static absolute bottom-12 left-1/2 md:-translate-x-0 -translate-x-1/2 flex flex-col items-center ">
         <p className="md:text-6xl text-5xl text-white">
           {userWon == null ? 'TIE' : userWon ? 'YOU WIN' : 'YOU LOST'}
         </p>
@@ -36,7 +36,7 @@ const Results = (props: Props) => {
           PLAY AGAIN
         </button>
       </div>
-      <div className="z-50 flex flex-col items-center">
+      <div className="z-40 flex flex-col items-center">
         <Coin
           highlight={userWon != null && !userWon}
           type={results.botChoice}

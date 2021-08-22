@@ -43,9 +43,6 @@ const Selector = (props: Props) => {
           <Coin onClick={selectCoin} type={CoinType.ROCK} />
         </div>
       </div>
-      <button className="w-32 h-12 md:self-end md:mt-0 mt-24  bg-transparent border-solid text-white hover:bg-white hover:text-scoreText border-2 rounded-lg">
-        RULES
-      </button>
     </div>
   );
 };
