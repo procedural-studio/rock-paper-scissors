@@ -83,3 +83,13 @@ a {
   @apply absolute;
   transform: translate(-70%, 100%);
 }
+
+.brand {
+  @apply text-white;
+  font-family: 'DM Serif Display';
+}
+
+.brand.name {
+  @apply text-white text-sm;
+  font-family: 'Nunito Sans';
+}

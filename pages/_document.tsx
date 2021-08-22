@@ -17,10 +17,19 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta httpEquiv="ScreenOrientation" content="autoRotate:disabled" />
           <link
             href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
             rel="stylesheet"
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"
+            rel="stylesheet"
+          ></link>
+          <link
+            href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito+Sans:wght@200&display=swap"
+            rel="stylesheet"
+          ></link>
         </Head>
         <body>
           <Main />

@@ -19,7 +19,7 @@ const Selector = (props: Props) => {
   };
 
   return (
-    <div className="flex flex-col items-center relative md:h-4/5 h-5/6 lg:w-2/3 md:w-3/4 pt-12 w-full">
+    <div className="flex flex-col items-center relative md:h-4/5 h-5/6 lg:w-2/3 md:w-3/4 pt-8 w-full">
       <div className="flex items-center justify-center m-12  ">
         {/*eslint-disable-next-line @next/next/no-img-element*/}
         <img
