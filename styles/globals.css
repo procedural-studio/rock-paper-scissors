@@ -27,9 +27,7 @@ a {
 }
 
 .coin {
-  @apply z-50 disabled:hover:scale-100 hover:scale-110 rounded-full md:border-b-8 border-b-4  flex items-center justify-center;
-  height: 7rem;
-  width: 7rem;
+  @apply z-50 disabled:hover:scale-100 hover:scale-110 rounded-full md:border-b-8 border-b-4 h-28 w-28 flex items-center justify-center;
 }
 
 .coin.inner {
