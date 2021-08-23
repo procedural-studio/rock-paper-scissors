@@ -55,13 +55,13 @@ const Results = (props: Props) => {
         </p>
       </div>
       {showResults && (
-        <div className="z-40 md:static absolute bottom-12 left-1/2 md:-translate-x-0 -translate-x-1/2 flex flex-col items-center ">
-          <p className="md:text-6xl text-5xl text-white">
+        <div className="z-40 md:static absolute bottom-24 left-1/2 md:-translate-x-0 -translate-x-1/2 flex flex-col items-center ">
+          <p className="md:text-6xl text-4xl text-white">
             {userWon == null ? 'TIE' : userWon ? 'YOU WIN' : 'YOU LOST'}
           </p>
           <button
             onClick={clearResults}
-            className="mt-12 font-semibold hover:scale-105 border-darkText bg-white h-16 w-56 rounded-lg text-darkText md:text-xl tracking-widest"
+            className="mt-12 font-semibold hover:scale-105 border-darkText bg-white md:h-16 h-14 md:w-56 w-36 rounded-lg text-darkText md:text-xl tracking-widest"
           >
             PLAY AGAIN
           </button>
