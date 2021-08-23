@@ -38,7 +38,7 @@ const Results = (props: Props) => {
 
   useEffect(() => {
     if (seconds >= 1) {
-      setTimeout(() => setSeconds(seconds - 1), 1000);
+      setTimeout(() => setSeconds(seconds - 1), 700);
     } else {
       setShowResults(true);
       updateScoreboard(newScore);
