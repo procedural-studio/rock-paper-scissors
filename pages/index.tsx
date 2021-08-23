@@ -36,17 +36,17 @@ const checkUserWon = (results: IGameResults) => {
 const Home: NextPage = () => {
   const [results, setResults] = useState<IGameResults | null>(null);
   const [score, setScore] = useState(0);
+  const [newScore, setNewScore] = useState(0);
   const [userWon, setUserWon] = useState<boolean | null>(null);
   const [showRules, setShowRules] = useState(false);
 
   const selectCoin = (userChoice: CoinType, botChoice: CoinType) => {
     const newResults = { userChoice, botChoice };
     const newUserWon = checkUserWon(newResults);
-    console.log(newUserWon);
     const update = newUserWon == null ? 0 : newUserWon ? 1 : -1;
     setUserWon(newUserWon);
     setResults(newResults);
-    setScore(score + update);
+    setNewScore(score + update);
   };
 
   const clearResults = () => {
@@ -67,6 +67,8 @@ const Home: NextPage = () => {
           <Results
             results={results}
             userWon={userWon}
+            newScore={newScore} 
+            updateScoreboard={setScore}
             clearResults={clearResults}
           />
         ) : (

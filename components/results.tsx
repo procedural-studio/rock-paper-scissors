@@ -10,6 +10,8 @@ export interface Props {
   results: IGameResults;
   clearResults: () => void;
   userWon: boolean | null;
+  newScore: number;
+  updateScoreboard: (score:number) => void;
 }
 
 export interface CoinProps {
@@ -28,6 +30,8 @@ const Results = (props: Props) => {
   const results = props.results;
   const clearResults = props.clearResults;
   const userWon = props.userWon;
+  const updateScoreboard = props.updateScoreboard;
+  const newScore = props.newScore;
 
   const [seconds, setSeconds] = useState(3);
   const [showResults, setShowResults] = useState(false);
@@ -37,8 +41,10 @@ const Results = (props: Props) => {
       setTimeout(() => setSeconds(seconds - 1), 1000);
     } else {
       setShowResults(true);
+      updateScoreboard(newScore);
+      
     }
-  }, [seconds, setShowResults]);
+  }, [seconds, setShowResults, newScore, updateScoreboard]);
 
   return (
     <div className="relative flex pt-36 md:h-4/5 h-5/6 md:justify-evenly justify-between w-full lg:w-2/3 md:w-3/4">
