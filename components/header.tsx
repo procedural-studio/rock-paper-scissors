@@ -17,7 +17,7 @@ const Header = (props: Props) => {
           <p className="leading-5">LIZARD</p>
           <p className="leading-5">SPOCK</p>
         </div>
-        <div className="flex flex-col justify-center items-center tracking-widest text-scoreText md:px-12 px-8 bg-white rounded-md">
+        <div className="flex flex-col justify-center items-center tracking-widest text-scoreText md:p-14 p-8 py-10 bg-white rounded-md">
           <p>SCORE</p>
           <h1 className="text-darkText text-5xl md:text-7xl">{score}</h1>
         </div>
