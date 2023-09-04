@@ -1,50 +1,50 @@
-import React from 'react';
-import Coin, { CoinType } from './coin';
+import Coin, { CoinType } from "./coin";
 
 export interface Props {
-  onSelect: (useChoice: CoinType, botChoice: CoinType) => void;
+    onSelect: (useChoice: CoinType, botChoice: CoinType) => void;
 }
 
 function randomEnum<T>(anEnum: T): T[keyof T] {
-  const enumValues = Object.values(anEnum) as unknown as T[keyof T][];
-  const randomIndex = Math.floor(Math.random() * enumValues.length);
-  const randomEnumValue = enumValues[randomIndex];
-  return randomEnumValue;
+    // @ts-ignore
+    const enumValues = Object.values(anEnum) as unknown as T[keyof T][];
+    const randomIndex = Math.floor(Math.random() * enumValues.length);
+    const randomEnumValue = enumValues[randomIndex];
+    return randomEnumValue;
 }
 
 const Selector = (props: Props) => {
-  const selectCoin = (useChoice: CoinType) => {
-    const botChoice = randomEnum(CoinType);
-    props.onSelect(useChoice, botChoice);
-  };
+    const selectCoin = (useChoice: CoinType) => {
+        const botChoice = randomEnum(CoinType);
+        props.onSelect(useChoice, botChoice);
+    };
 
-  return (
-    <div className="flex flex-col items-center relative md:h-4/5 h-5/6 lg:w-2/3 md:w-3/4 pt-8 w-full">
-      <div className="flex items-center justify-center m-12  ">
-        {/*eslint-disable-next-line @next/next/no-img-element*/}
-        <img
-          className="md:h-96 md:w-96 h-64 w-64"
-          src="/images/bg-pentagon.svg"
-          alt="logo"
-        />
-        <div className="coin-top">
-          <Coin onClick={selectCoin} type={CoinType.SCISSORS} />
+    return (
+        <div className="flex flex-col items-center relative md:h-4/5 h-5/6 lg:w-2/3 md:w-3/4 pt-8 w-full">
+            <div className="flex items-center justify-center m-12  ">
+                {/*eslint-disable-next-line @next/next/no-img-element*/}
+                <img
+                    className="md:h-96 md:w-96 h-64 w-64"
+                    src="/images/bg-pentagon.svg"
+                    alt="logo"
+                />
+                <div className="coin-top">
+                    <Coin onClick={selectCoin} type={CoinType.SCISSORS} />
+                </div>
+                <div className="coin-top-left">
+                    <Coin onClick={selectCoin} type={CoinType.SPOCK} />
+                </div>
+                <div className="coin-top-right">
+                    <Coin onClick={selectCoin} type={CoinType.PAPER} />
+                </div>
+                <div className="coin-bottom-left">
+                    <Coin onClick={selectCoin} type={CoinType.LIZARD} />
+                </div>
+                <div className="coin-bottom-right">
+                    <Coin onClick={selectCoin} type={CoinType.ROCK} />
+                </div>
+            </div>
         </div>
-        <div className="coin-top-left">
-          <Coin onClick={selectCoin} type={CoinType.SPOCK} />
-        </div>
-        <div className="coin-top-right">
-          <Coin onClick={selectCoin} type={CoinType.PAPER} />
-        </div>
-        <div className="coin-bottom-left">
-          <Coin onClick={selectCoin} type={CoinType.LIZARD} />
-        </div>
-        <div className="coin-bottom-right">
-          <Coin onClick={selectCoin} type={CoinType.ROCK} />
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Selector;
