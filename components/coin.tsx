@@ -1,11 +1,11 @@
 import Image from 'next/image';
 
 export enum CoinColor {
-  RED = 'red',
-  BLUE = 'blue',
-  YELLOW = 'yellow',
-  GREEN = 'green',
-  PURPLE = 'purple',
+  RED = 'purple',
+  BLUE = 'red',
+  YELLOW = 'blue',
+  GREEN = 'yellow',
+  PURPLE = 'green',
 }
 
 export enum CoinType {
